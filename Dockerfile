@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-ARG a4c_version=2.1.0-SM7
+ARG a4c_version=2.1.0
 
 RUN apk add --update bash openssl curl python && \
     mkdir -p /var/a4c && \
