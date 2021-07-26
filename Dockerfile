@@ -12,11 +12,14 @@ RUN groupadd a4c && \
     rm alien4cloud-${dist}-${a4c_version}-dist.tar.gz && \
     chown -R a4c:a4c /opt/a4c
 
+# There must a4c.env file even empty for run options such as truststore location
+COPY a4c.env /opt/a4c/alien4cloud
+RUN chmod +x /opt/a4c/alien4cloud/a4c.env
 EXPOSE 8088
 
 USER a4c
+ENTRYPOINT cd /opt/a4c/alien4cloud && source ./a4c.env && ./alien4cloud.sh
 
-ENTRYPOINT cd /opt/a4c/alien4cloud && ./alien4cloud.sh
 
 ARG BUILD_DATE
 ARG VCS_REF
