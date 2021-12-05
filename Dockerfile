@@ -1,6 +1,6 @@
 FROM openjdk:15.0.2-oracle
 
-ARG a4c_version=3.3.0
+ARG a4c_version=3.4.0
 ARG dist=premium-dist
 
 RUN groupadd a4c && \
